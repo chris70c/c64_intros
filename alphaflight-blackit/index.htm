@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,width=device-width">
+  <title>Alpha Flight | Black It</title>
+  <style type="text/css">
+    body   { background:#000; margin:0; padding:10px 0; }
+    canvas { display:block; margin:0 auto; image-rendering:-moz-crisp-edges; image-rendering:pixelated; width:768px; height:544px; }
+  </style>
+  <script type="text/javascript" src="fsid.js"></script>
+  <script type="text/javascript" src="alphaflight-blackit.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("fsidReady", () => {
+      const player = window.neoart.FSid;
+
+      fetch('alphaflight-blackit.bin')
+        .then(response => {
+          return response.arrayBuffer();
+        })
+        .then(stream => {
+          if (player.load(stream)) {
+            intro(player);
+          }
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="frame"></div>
+</body>
+</html>
